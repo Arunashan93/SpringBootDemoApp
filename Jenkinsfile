@@ -37,7 +37,6 @@ stage('Email Notification')
       withSonarQubeEnv('sonarqube') {
         sh 'mvn sonar:sonar' 
       }   
-  }
   stage('Quality Gate Check'){
       def qg = waitForQualityGate()
               if (qg.status != 'OK') {
