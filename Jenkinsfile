@@ -38,6 +38,7 @@ stage('Email Notification')
         sh 'mvn sonar:sonar' 
       }   
   stage('Quality Gate Check'){
+      sleep(60)
       def qg = waitForQualityGate()
               if (qg.status != 'OK') {
                   currentBuild.result = 'FAILURE'
